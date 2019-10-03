@@ -118,6 +118,7 @@
             this.calculateTotalsButton.TabIndex = 7;
             this.calculateTotalsButton.Text = "Calculate Totals";
             this.calculateTotalsButton.UseVisualStyleBackColor = true;
+            this.calculateTotalsButton.Click += new System.EventHandler(this.calculateTotalsButton_Click);
             // 
             // totalsLabel
             // 
