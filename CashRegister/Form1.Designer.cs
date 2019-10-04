@@ -156,6 +156,7 @@
             this.calculateChangeButton.TabIndex = 11;
             this.calculateChangeButton.Text = "Calculate Change";
             this.calculateChangeButton.UseVisualStyleBackColor = true;
+            this.calculateChangeButton.Click += new System.EventHandler(this.calculateChangeButton_Click);
             // 
             // tenderedLabel
             // 
