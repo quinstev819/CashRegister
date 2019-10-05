@@ -141,11 +141,11 @@
             // blackBarLabel
             // 
             this.blackBarLabel.BackColor = System.Drawing.Color.Black;
+            this.blackBarLabel.ForeColor = System.Drawing.Color.Crimson;
             this.blackBarLabel.Location = new System.Drawing.Point(33, 260);
             this.blackBarLabel.Name = "blackBarLabel";
             this.blackBarLabel.Size = new System.Drawing.Size(145, 14);
             this.blackBarLabel.TabIndex = 10;
-            this.blackBarLabel.Text = "label4";
             // 
             // calculateChangeButton
             // 
@@ -201,6 +201,7 @@
             this.printReceiptButton.TabIndex = 16;
             this.printReceiptButton.Text = "Print Receipt";
             this.printReceiptButton.UseVisualStyleBackColor = true;
+            this.printReceiptButton.Click += new System.EventHandler(this.printReceiptButton_Click);
             // 
             // receiptLabel
             // 
@@ -219,6 +220,7 @@
             this.newOrderButton.TabIndex = 18;
             this.newOrderButton.Text = "New Order";
             this.newOrderButton.UseVisualStyleBackColor = true;
+            this.newOrderButton.Click += new System.EventHandler(this.newOrderButton_Click);
             // 
             // Form1
             // 
