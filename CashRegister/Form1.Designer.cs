@@ -149,6 +149,7 @@
             // 
             // calculateChangeButton
             // 
+            this.calculateChangeButton.Enabled = false;
             this.calculateChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.calculateChangeButton.Location = new System.Drawing.Point(33, 313);
             this.calculateChangeButton.Name = "calculateChangeButton";
@@ -169,6 +170,7 @@
             // 
             // tenderedText
             // 
+            this.tenderedText.Enabled = false;
             this.tenderedText.Location = new System.Drawing.Point(101, 284);
             this.tenderedText.Name = "tenderedText";
             this.tenderedText.Size = new System.Drawing.Size(77, 20);
@@ -194,6 +196,7 @@
             // 
             // printReceiptButton
             // 
+            this.printReceiptButton.Enabled = false;
             this.printReceiptButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.printReceiptButton.Location = new System.Drawing.Point(33, 376);
             this.printReceiptButton.Name = "printReceiptButton";
