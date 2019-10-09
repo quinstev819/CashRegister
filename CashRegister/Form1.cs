@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Media;
@@ -49,36 +43,6 @@ namespace CashRegister
             //prices mathematics
             try
             {
-                //sets the number of ice creams bought to 0 if the person did not input anything into the ice cream text field
-                if (iceCreamsText.Text == "")
-                {
-                    numbersOfIceCream = 0;
-                }
-                else
-                {
-                    numbersOfIceCream = Convert.ToInt16(iceCreamsText.Text);
-                }
-
-                //sets the number of toppings bought to 0 if the person did not input anything into the toppings text field
-                if (toppingsText.Text == "")
-                {
-                    numbersOfToppings = 0;
-                }
-                else
-                {
-                    numbersOfToppings = Convert.ToInt16(toppingsText.Text);
-                }
-
-                //sets the number of drinks bought to 0 if the person did not input anything into the drinks text field
-                if (drinksText.Text == "")
-                {
-                    numbersOfDrinks = 0;
-                }
-                else
-                {
-                    numbersOfDrinks = Convert.ToInt16(drinksText.Text);
-                }
-
                 //sets the bar colour to black
                 blackBarLabel.BackColor = Color.Black;
                 blackBarLabel.ForeColor = Color.Black;
@@ -126,49 +90,7 @@ namespace CashRegister
 
         private void calculateChangeButton_Click(object sender, EventArgs e)
         {
-            //prices code from above
-            try
-            {
-                //sets the number of ice creams bought to 0 if the person did not input anything into the ice cream text field
-                if (iceCreamsText.Text == "")
-                {
-                    numbersOfIceCream = 0;
-                }
-                else
-                {
-                    numbersOfIceCream = Convert.ToInt16(iceCreamsText.Text);
-                }
-
-                //sets the number of toppings bought to 0 if the person did not input anything into the toppings text field
-                if (toppingsText.Text == "")
-                {
-                    numbersOfToppings = 0;
-                }
-                else
-                {
-                    numbersOfToppings = Convert.ToInt16(toppingsText.Text);
-                }
-
-                //sets the number of drinks bought to 0 if the person did not input anything into the drinks text field
-                if (drinksText.Text == "")
-                {
-                    numbersOfDrinks = 0;
-                }
-                else
-                {
-                    numbersOfDrinks = Convert.ToInt16(drinksText.Text);
-                }
-
-                //sets the tendered amount to 0 if the person did not input anything into the tendered text field
-                if (tenderedText.Text == "")
-                {
-                    tenderedAmount = 0;
-                }
-                else
-                {
-                    tenderedAmount = Convert.ToDouble(tenderedText.Text);
-                }
-                
+            try {
                 //sets the bar colour to black
                 blackBarLabel.BackColor = Color.Black;
                 blackBarLabel.ForeColor = Color.Black;
@@ -212,8 +134,8 @@ namespace CashRegister
         private void printReceiptButton_Click(object sender, EventArgs e)
         {
             //graphics setup
+            printReceiptButton.Enabled = false;
             Graphics g = receiptLabel.CreateGraphics();
-            Pen drawPen = new Pen(Color.Black);
             Font drawFont = new Font("Courier New", 8);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
@@ -288,15 +210,15 @@ namespace CashRegister
             g.DrawString(printedDrinksTotal.ToString("C"), drawFont, drawBrush, 241, 90);
             Thread.Sleep(2010);
             printerSound.Play();
-            g.DrawString("Sub Total", drawFont, drawBrush, 0, 110);
+            g.DrawString("Sub Total:", drawFont, drawBrush, 0, 110);
             g.DrawString(subTotal.ToString("C"), drawFont, drawBrush, 241, 110);
             Thread.Sleep(2010);
             printerSound.Play();
-            g.DrawString("Tax", drawFont, drawBrush, 0, 120);
+            g.DrawString("Tax:", drawFont, drawBrush, 0, 120);
             g.DrawString(taxesTotal.ToString("C"), drawFont, drawBrush, 241, 120);
             Thread.Sleep(2010);
             printerSound.Play();
-            g.DrawString("Total", drawFont, drawBrush, 0, 130);
+            g.DrawString("Total:", drawFont, drawBrush, 0, 130);
             g.DrawString(totalPrice.ToString("C"), drawFont, drawBrush, 241, 130);
             Thread.Sleep(2010);
             printerSound.Play();
@@ -312,7 +234,7 @@ namespace CashRegister
             g.DrawString(changeAmounts.ToString("C"), drawFont, drawBrush, 241, 170);
             Thread.Sleep(2010);
             printerSound.Play();
-            g.DrawString("Thank you for shopping with us!", drawFont, drawBrush, (receiptLabel.Width/2)-90, 190);
+            g.DrawString("Thank you for shopping with us!", drawFont, drawBrush, (receiptLabel.Width/2)-100, 190);
             Thread.Sleep(2010);
             printerSound.Stop();
         }
@@ -343,7 +265,6 @@ namespace CashRegister
             tenderedText.Enabled = false;
             calculateChangeButton.Enabled = false;
             printReceiptButton.Enabled = false;
-
         }
     }
 }
