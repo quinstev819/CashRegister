@@ -121,4 +121,7 @@
   <data name="Google_Noto_Emoji_Food_Drink_32416_soft_ice_cream" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Google-Noto-Emoji-Food-Drink-32416-soft-ice-cream.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="printerSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\printerSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

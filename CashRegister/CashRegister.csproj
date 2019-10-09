@@ -83,5 +83,8 @@
   <ItemGroup>
     <None Include="Resources\Google-Noto-Emoji-Food-Drink-32416-soft-ice-cream.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printerSound.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
