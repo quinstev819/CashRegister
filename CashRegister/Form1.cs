@@ -9,6 +9,9 @@ using System.Media;
 /// Tony Theodoropoulos
 /// ICS 3U
 /// October 3rd, 2019
+/// 
+/// This program simulates a grocery store type cash register.
+/// 
 /// </summary>
 
 namespace CashRegister
@@ -22,14 +25,14 @@ namespace CashRegister
         const double TAX_RATE = 0.13;
 
         //global variables
-        int numbersOfIceCream = 0;
-        int numbersOfToppings = 0;
-        int numbersOfDrinks = 0;
-        double subTotal = 0;
-        double taxesTotal = 0;
-        double totalPrice = 0;
-        double tenderedAmount = 0;
-        double changeAmounts = 0;
+        int numbersOfIceCream;
+        int numbersOfToppings;
+        int numbersOfDrinks;
+        double subTotal;
+        double taxesTotal;
+        double totalPrice;
+        double tenderedAmount;
+        double changeAmounts;
 
         public Form1()
         { 
@@ -43,6 +46,35 @@ namespace CashRegister
             //prices mathematics
             try
             {
+                //sets the number of ice creams bought to 0 if the person did not input anything into the ice cream text field
+                if (iceCreamsText.Text == "")
+                {
+                    numbersOfIceCream = 0;
+                }
+                else
+                {
+                    numbersOfIceCream = Convert.ToInt16(iceCreamsText.Text);
+                }
+
+                //sets the number of toppings bought to 0 if the person did not input anything into the toppings text field
+                if (toppingsText.Text == "")
+                {
+                    numbersOfToppings = 0;
+                }
+                else
+                {
+                    numbersOfToppings = Convert.ToInt16(toppingsText.Text);
+                }
+
+                //sets the number of drinks bought to 0 if the person did not input anything into the drinks text field
+                if (drinksText.Text == "")
+                {
+                    numbersOfDrinks = 0;
+                }
+                else
+                {
+                    numbersOfDrinks = Convert.ToInt16(drinksText.Text);
+                }
                 //sets the bar colour to black
                 blackBarLabel.BackColor = Color.Black;
                 blackBarLabel.ForeColor = Color.Black;
@@ -91,20 +123,17 @@ namespace CashRegister
         private void calculateChangeButton_Click(object sender, EventArgs e)
         {
             try {
+                if (tenderedText.Text == "")
+                {
+                    tenderedAmount = 0;
+                }
+                else
+                {
+                    tenderedAmount = Convert.ToDouble(tenderedText.Text);
+                }
                 //sets the bar colour to black
                 blackBarLabel.BackColor = Color.Black;
                 blackBarLabel.ForeColor = Color.Black;
-
-                //calculates the subtotal
-                subTotal = (numbersOfIceCream * ICE_CREAM_PRICE)
-                    + (numbersOfToppings * TOPPING_PRICE)
-                    + (numbersOfDrinks * DRINKS_PRICE);
-
-                //calculting the tax
-                taxesTotal = subTotal * TAX_RATE;
-
-                //calculating the price
-                totalPrice = subTotal + taxesTotal;
 
                 //calculating the change amount
                 changeAmounts = tenderedAmount - totalPrice;
@@ -157,22 +186,28 @@ namespace CashRegister
             //printing the receipt and playing the sound
             printerSound.Play();
             g.DrawString("Quinn\'s Ice Cream Parlour", drawFont, drawBrush, (receiptLabel.Width/2)-85, 0);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("     428 Forman Ave.      ", drawFont, drawBrush, (receiptLabel.Width/2)-85, 10);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("        Stratford         ", drawFont, drawBrush, (receiptLabel.Width/2)-85, 20);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("     Ontario, N5A 6R7     ", drawFont, drawBrush, (receiptLabel.Width/2)-85, 30);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("      (519) 271-9740      ", drawFont, drawBrush, (receiptLabel.Width/2)-85, 40);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString(day, drawFont, drawBrush, (receiptLabel.Width/2)-85, 50);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString(printedNumberOfIceCreams, drawFont, drawBrush, 0, 70);
             if (printedNumberOfIceCreamsOne == 1)
@@ -184,7 +219,8 @@ namespace CashRegister
                 g.DrawString("Ice Creams @ $5.00", drawFont, drawBrush, (receiptLabel.Width/2)-55, 70);
             }
             g.DrawString(printedIceCreamTotal.ToString("C"), drawFont, drawBrush, 241, 70);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString(printedNumberOfToppings, drawFont, drawBrush, 0, 80);
             if (printedNumberOfToppingsOne == 1)
@@ -196,7 +232,8 @@ namespace CashRegister
                 g.DrawString("Toppings @ 70¢", drawFont, drawBrush, (receiptLabel.Width/2)-40, 80);
             }
             g.DrawString(printedToppingsTotal.ToString("C"), drawFont, drawBrush, 241, 80);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString(printedNumberOfDrinks, drawFont, drawBrush, 0, 90);
             if (printedNumberOfDrinksOne == 1)
@@ -208,34 +245,41 @@ namespace CashRegister
                 g.DrawString("Drinks @ $2.50", drawFont, drawBrush, (receiptLabel.Width/2)-40, 90);
             }
             g.DrawString(printedDrinksTotal.ToString("C"), drawFont, drawBrush, 241, 90);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Sub Total:", drawFont, drawBrush, 0, 110);
             g.DrawString(subTotal.ToString("C"), drawFont, drawBrush, 241, 110);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Tax:", drawFont, drawBrush, 0, 120);
             g.DrawString(taxesTotal.ToString("C"), drawFont, drawBrush, 241, 120);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Total:", drawFont, drawBrush, 0, 130);
             g.DrawString(totalPrice.ToString("C"), drawFont, drawBrush, 241, 130);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Payment Method:", drawFont, drawBrush, 0, 150);
             g.DrawString("Cash", drawFont, drawBrush, 241, 150);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Tendered:", drawFont, drawBrush, 0, 160);
             g.DrawString(tenderedAmount.ToString("C"), drawFont, drawBrush, 241, 160);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Change:", drawFont, drawBrush, 0, 170);
             g.DrawString(changeAmounts.ToString("C"), drawFont, drawBrush, 241, 170);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
+            printerSound.Stop();
             printerSound.Play();
             g.DrawString("Thank you for shopping with us!", drawFont, drawBrush, (receiptLabel.Width/2)-100, 190);
-            Thread.Sleep(2010);
+            Thread.Sleep(200);
             printerSound.Stop();
         }
 
